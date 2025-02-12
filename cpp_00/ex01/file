@@ -1,0 +1,246 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/28 12:18:19 by fgrabows          #+#    #+#             */
+/*   Updated: 2025/01/30 08:33:40 by fgrabows         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Contact.hpp"
+#include <iostream>
+
+void Contact::Add(void)
+{
+	std::cout << "Insert First Name: ";
+	std::cin >> this->_first_name;
+	std::cout << "Insert Last Name: ";
+	std::cin >> this->_last_name;
+	std::cout << "Insert Phone Number: ";
+	std::cin >> this->_phone_number;
+	std::cout << "Insert Nickname: ";
+	std::cin >> this->_nickname;
+	std::cout << "Insert Darkeset Secret: ";
+	std::cin >> this->_darkest_secret;
+	
+};
+
+std::string Contact::GetArgument(std::string arg) const
+{
+	if(arg == "f_name")
+		return _first_name;
+	else if(arg == "l_name")
+		return _last_name;
+	else if(arg == "number")
+		return _phone_number;
+	else if(arg == "nickname")
+		return _nickname;
+	else if(arg == "secret")
+		return _darkest_secret;
+	else 
+		return("Wrong arg\n");
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/28 12:03:14 by fgrabows          #+#    #+#             */
+/*   Updated: 2025/01/29 17:21:24 by fgrabows         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Phonebook.hpp"
+#include "Contact.hpp"
+#include <iostream>
+#include <string>
+
+
+#define INFO "You can:\n\
+ADD a new contact\n\
+SEARCH for a contact\n\
+EXIT the program.\n"
+
+std::string TextCutter(std::string str)
+{
+	int lenght = str.length();
+
+	if(lenght > 10)
+		return (str.substr(0,9).append("."));
+	else 
+		return str;
+}
+
+int main(void)
+{
+	PhoneBook phonebook;
+	std::string input;
+	
+	std::cout << INFO;
+	std::cin >> input;
+	while(input != "EXIT")
+	{
+		if (input == "SEARCH")
+			phonebook.SearchContact();
+		else if (input == "ADD")
+			phonebook.AddContact();
+		else
+			std::cout << "Wrong input" << std::endl;
+		std::cout << INFO;
+		std::cin >> input;
+	}
+}/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/28 12:17:29 by fgrabows          #+#    #+#             */
+/*   Updated: 2025/01/30 09:26:25 by fgrabows         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Phonebook.hpp"
+#include "Contact.hpp"
+#include <string>
+#include <iostream>
+#include <iomanip>
+
+std::string TextCutter(std::string str);
+
+int PhoneBook::_nr_of_contacts = 0;
+int PhoneBook::_indicatro = 0;
+
+PhoneBook::PhoneBook()
+{
+	std::cout << "PhoneBook got created <3" << std::endl;
+}
+
+PhoneBook::~PhoneBook()
+{
+	std::cout << "PhoneBook got destroyed :(" << std::endl;
+}
+
+void PhoneBook::AddContact()
+{
+	if (_nr_of_contacts == 8)
+		std::cout << "The oldest contact got deleted\n";
+	if (_indicatro == 8)
+		_indicatro = 0;
+	this->_contact[_indicatro].Add();
+	(_nr_of_contacts)++;
+	if (_nr_of_contacts == 8)
+		std::cout << "You reached the maximum number of contacts\n";
+}
+
+void PhoneBook::PrintContact(void) const
+{
+	int index;
+	std::cout << "Which contact do you want? Type the index:";
+	while(!(std::cin >> index))
+	{
+		std::cout << "Invalid input. Enter a number: ";
+	}
+	if(index < 0 || index >= _nr_of_contacts)
+		std::cout << "Index is out of range\n";
+	else
+	{
+		std::cout << "First name: " << this->_contact[index].GetArgument("f_name")
+			<< "\nLast name: " << this->_contact[index].GetArgument("l_name")
+			<< "\nNickname: " << this->_contact[index].GetArgument("nickname")
+			<< "\nPhone number: " << this->_contact[index].GetArgument("number")
+			<< "\nDarkest secret: " << this->_contact[index].GetArgument("secret")
+				<< std::endl;
+			
+	}
+	
+	
+}
+void PhoneBook::SearchContact() const
+{
+	std::string input;
+	std::cout << std::left << std::setw(10) << "Index" << "|";
+	std::cout << std::left << std::setw(10) << "First Name" << "|";
+	std::cout << std::left << std::setw(10) << "Last Name" << "|";
+	std::cout << std::left << std::setw(10) << "Nickname" << "|\n" ;
+
+	for(int i = 0; i < _nr_of_contacts; i++)
+	{
+		std::cout << std::left << std::setw(10) << i << "|";
+		std::cout << std::left << std::setw(10) 
+			<< TextCutter(this->_contact[i].GetArgument("f_name")) << "|";
+		std::cout << std::left << std::setw(10) 
+			<< TextCutter(this->_contact[i].GetArgument("l_name")) << "|";
+		std::cout << std::left << std::setw(10) 
+			<< TextCutter(this->_contact[i].GetArgument("nickname")) << "|\n";
+	}
+	this->PrintContact();
+	
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/28 12:13:20 by fgrabows          #+#    #+#             */
+/*   Updated: 2025/01/29 16:40:32 by fgrabows         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
+
+#include <string>
+
+class Contact
+{
+public:
+	void Add(void);
+	std::string GetArgument(std::string arg) const;
+private:
+	std::string _first_name;
+	std::string _last_name;
+	std::string _nickname;
+	std::string _phone_number;
+	std::string _darkest_secret;
+};
+
+#endif/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/28 12:06:11 by fgrabows          #+#    #+#             */
+/*   Updated: 2025/01/30 09:24:28 by fgrabows         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <string>
+#include "Contact.hpp"
+
+class PhoneBook
+{
+public:
+	PhoneBook();
+	~PhoneBook();
+	
+	void AddContact();
+	void SearchContact() const;
+private:
+	Contact _contact[8];
+	static int _nr_of_contacts;
+	static int _indicatro;
+
+	void PrintContact(void) const;
+	
+};
