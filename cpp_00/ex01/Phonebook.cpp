@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*   By: fgrabows <fgrabows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:17:29 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/01/30 10:58:40 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/02/12 10:16:19 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,19 +77,19 @@ void PhoneBook::SearchContact() const
 		std::cout << "#No contacts to search#\n";
 		return;
 	}
-	std::cout << std::left << std::setw(10) << "Index" << "|";
-	std::cout << std::left << std::setw(10) << "First Name" << "|";
-	std::cout << std::left << std::setw(10) << "Last Name" << "|";
-	std::cout << std::left << std::setw(10) << "Nickname" << "|\n" ;
+	std::cout << std::right << std::setw(10) << "Index" << "|";
+	std::cout << std::right << std::setw(10) << "First Name" << "|";
+	std::cout << std::right << std::setw(10) << "Last Name" << "|";
+	std::cout << std::right << std::setw(10) << "Nickname" << "|\n" ;
 
 	for(int i = 0; i < _nr_of_contacts; i++)
 	{
-		std::cout << std::left << std::setw(10) << i << "|";
-		std::cout << std::left << std::setw(10) 
+		std::cout << std::right << std::setw(10) << i << "|";
+		std::cout << std::right << std::setw(10) 
 			<< TextCutter(this->_contact[i].GetArgument("f_name")) << "|";
-		std::cout << std::left << std::setw(10) 
+		std::cout << std::right << std::setw(10) 
 			<< TextCutter(this->_contact[i].GetArgument("l_name")) << "|";
-		std::cout << std::left << std::setw(10) 
+		std::cout << std::right << std::setw(10) 
 			<< TextCutter(this->_contact[i].GetArgument("nickname")) << "|\n";
 	}
 	this->PrintContact();

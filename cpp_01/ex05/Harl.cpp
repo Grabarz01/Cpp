@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*   By: fgrabows <fgrabows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 11:58:15 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/02/04 15:34:42 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/02/12 10:48:54 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 #include <iostream>
-#include <vector>
 
 void Harl::debug(void)
 {

@@ -3,23 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*   By: fgrabows <fgrabows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:03:03 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/01/28 12:03:05 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/02/12 10:00:10 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cctype>
 
-void megaphone(char *str)
+void megaphone(const char *str)
 {
 	for (int i = 0; str[i]; i++)
 	{	
 		if (std::islower(str[i]))
 			std::cout << static_cast<char>(toupper(str[i]));
 		else
-			std::cout << static_cast<char>(str[i]);
+			std::cout << str[i];
 	}
 }
 

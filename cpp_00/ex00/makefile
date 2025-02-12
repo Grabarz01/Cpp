@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+         #
+#    By: fgrabows <fgrabows@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/28 12:03:09 by fgrabows          #+#    #+#              #
-#    Updated: 2025/01/28 12:03:10 by fgrabows         ###   ########.fr        #
+#    Updated: 2025/02/12 09:57:22 by fgrabows         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,10 @@ OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CPP) $(CFLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CPP) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ)

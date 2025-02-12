@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+         #
+#    By: fgrabows <fgrabows@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 15:50:23 by fgrabows          #+#    #+#              #
-#    Updated: 2025/02/03 15:50:24 by fgrabows         ###   ########.fr        #
+#    Updated: 2025/02/12 10:19:54 by fgrabows         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
