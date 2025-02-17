@@ -36,6 +36,7 @@ void transferInputToFile(std::ifstream& infile, const std::string& s1,
 	
 	if (infile)
 	{
+		if ()
 		std::ofstream			outfile(outfile_str.c_str());
 		std::string				line;
 		std::string::iterator	occurance;
@@ -60,7 +61,7 @@ int main(int argc, char **argv)
 		std::cerr << "Error: Wrong amount of arguments" << std::endl;
 		return 1;
 	}
-	std::ifstream			infile(argv[1]);
+	std::ifstream	infile(argv[1]);
 	std::string		s1(argv[2]);
 	std::string		s2(argv[3]);
 	std::string		outfile(std::string(argv[1]) + ".replace");
