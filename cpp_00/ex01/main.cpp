@@ -15,11 +15,13 @@
 #include <iostream>
 #include <string>
 #include <limits>
+#include <stdlib.h>
 
 #define INFO "You can:\n\
 ADD a new contact\n\
 SEARCH for a contact\n\
-EXIT the program.\n"
+EXIT the program.\n\
+Insert command(ADD/SEARCH/EXIT):"
 
 std::string TextCutter(std::string str)
 {
@@ -30,23 +32,41 @@ std::string TextCutter(std::string str)
 	else 
 		return str;
 }
+
 std::string SafeStringInput(void)
 {
 	std::string input;
-	
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+	static int first;
+
+	if (first == 0) 
+		first++;
+	else
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
 	while(!(std::cin >> input))
 	{
+		if (std::cin.eof())
+		{
+			std::cout << "\nEOF detected, exiting the program..." << std::endl;
+			exit(1);
+		}
+		std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::cerr << "Error reading input!\n";
-		std::cout << "Try again:";	
+		std::cout << "Try again:";
 	}
 	return input;
 }
+
 int SafeIntInput(void)
 {
 	int number;
 	while(!(std::cin >> number))
 	{
+		if(std::cin.eof())
+		{
+			std::cout << "\nEOF detected, exiting the program..." << std::endl;
+			exit(1);
+		}
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
 		std::cout << "Wrong input. Try again:";
@@ -59,7 +79,7 @@ int main(void)
 	std::string input;
 	
 	std::cout << INFO;
-	std::cin >> input;
+	input = SafeStringInput();
 	while(input != "EXIT")
 	{
 		if (input == "SEARCH")
@@ -69,6 +89,6 @@ int main(void)
 		else
 			std::cout << "#Wrong input#" << std::endl;
 		std::cout << INFO;
-		std::cin >> input;
+		input = SafeStringInput();
 	}
 }

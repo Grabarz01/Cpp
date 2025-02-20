@@ -30,18 +30,27 @@ void Contact::Add(void)
 	
 };
 
-std::string Contact::GetArgument(std::string arg) const
+std::string Contact::GetFirstName() const
 {
-	if(arg == "f_name")
-		return _first_name;
-	else if(arg == "l_name")
-		return _last_name;
-	else if(arg == "number")
-		return _phone_number;
-	else if(arg == "nickname")
-		return _nickname;
-	else if(arg == "secret")
-		return _darkest_secret;
-	else 
-		return("#Wrong arg#\n");
+	return _first_name;
+}
+
+std::string Contact::GetSecondName() const
+{
+	return _last_name;	
+}
+
+std::string Contact::GetPhoneNumber() const
+{
+	return _phone_number;
+}
+
+std::string Contact::GetSecret() const
+{
+	return _darkest_secret;
+}
+
+std::string Contact::GetNickname() const
+{
+	return _nickname;
 }

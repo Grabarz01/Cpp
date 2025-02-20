@@ -19,7 +19,12 @@ class Contact
 {
 public:
 	void Add(void);
-	std::string GetArgument(std::string arg) const;
+	std::string GetPhoneNumber() const;
+	std::string GetSecondName() const;
+	std::string GetFirstName() const;
+	std::string GetSecret() const;
+	std::string GetNickname() const;
+
 private:
 	std::string _first_name;
 	std::string _last_name;

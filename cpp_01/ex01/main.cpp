@@ -17,6 +17,9 @@ Zombie* zombieHorde(int N, std::string name);
 
 int main(void)
 {
-	Zombie *horde_fiats = zombieHorde(7,"Fiat");
+	int N = 7;
+	Zombie *horde_fiats = zombieHorde(N,"Fiat");
+	for (int i = 0; i<N ; i++)
+		horde_fiats[i].announce();
 	delete []horde_fiats;
 }

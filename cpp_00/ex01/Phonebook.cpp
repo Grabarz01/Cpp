@@ -61,11 +61,11 @@ void PhoneBook::PrintContact(void) const
 		else
 			break;
 	}
-	std::cout << "First name: " << this->_contact[index].GetArgument("f_name")
-			<< "\nLast name: " << this->_contact[index].GetArgument("l_name")
-			<< "\nNickname: " << this->_contact[index].GetArgument("nickname")
-			<< "\nPhone number: " << this->_contact[index].GetArgument("number")
-			<< "\nDarkest secret: " << this->_contact[index].GetArgument("secret")
+	std::cout << "First name: " << this->_contact[index].GetFirstName()
+			<< "\nLast name: " << this->_contact[index].GetSecondName()
+			<< "\nNickname: " << this->_contact[index].GetNickname()
+			<< "\nPhone number: " << this->_contact[index].GetPhoneNumber()
+			<< "\nDarkest secret: " << this->_contact[index].GetSecret()
 			<< std::endl;
 }
 
@@ -86,11 +86,11 @@ void PhoneBook::SearchContact() const
 	{
 		std::cout << std::right << std::setw(10) << i << "|";
 		std::cout << std::right << std::setw(10) 
-			<< TextCutter(this->_contact[i].GetArgument("f_name")) << "|";
+			<< TextCutter(this->_contact[i].GetFirstName()) << "|";
 		std::cout << std::right << std::setw(10) 
-			<< TextCutter(this->_contact[i].GetArgument("l_name")) << "|";
+			<< TextCutter(this->_contact[i].GetSecondName()) << "|";
 		std::cout << std::right << std::setw(10) 
-			<< TextCutter(this->_contact[i].GetArgument("nickname")) << "|\n";
+			<< TextCutter(this->_contact[i].GetNickname()) << "|\n";
 	}
 	this->PrintContact();
 }
