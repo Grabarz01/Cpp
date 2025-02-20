@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*   By: fgrabows <fgrabows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 19:58:08 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/02/04 11:43:33 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/02/20 12:18:50 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void transferInputToFile(std::ifstream& infile, const std::string& s1,
 	
 	if (infile)
 	{
-		if ()
 		std::ofstream			outfile(outfile_str.c_str());
 		std::string				line;
 		std::string::iterator	occurance;
@@ -73,5 +72,6 @@ int main(int argc, char **argv)
 		return 1;
 	}
 	transferInputToFile(infile, s1, s2, outfile);
+	std::cout << "Succes" << std::endl;
 	return(0);
 }
