@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*   By: fgrabows <fgrabows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 09:07:23 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/02/06 17:21:37 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/03/05 13:44:04 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 #include <string>
 #include <iostream>
 #include <cmath>
+#include <climits>
+
+#define MAX_FIXED 8388600
+#define MIN_FIXED -8388600
+
 
 Fixed::Fixed(void)
 {
@@ -29,14 +34,23 @@ Fixed::Fixed(const Fixed& other)
 Fixed::Fixed(const int intValue)
 {
 	std::cout << "Int constructor called" << std::endl;
-    _value = intValue << _fracBits;
-	
+	if (intValue > INT_MAX || intValue < INT_MIN){
+		std::cout << "Too big value for this variable type" << std::endl;
+		exit(1);
+	}
+    else 
+		_value = intValue << _fracBits;
 }
 
 Fixed::Fixed(const float floatValue)
 {
 	std::cout << "Float constructor called" << std::endl;
-    _value = roundf(floatValue * (1 << _fracBits));
+	if(MAX_FIXED > floatValue || MIN_FIXED > floatValue){
+		std::cout << "Too big value for this variable type" << std::endl;
+		exit(1);
+	}
+	else
+    	_value = roundf(floatValue * (1 << _fracBits));
 }
 
 Fixed::~Fixed(void)
