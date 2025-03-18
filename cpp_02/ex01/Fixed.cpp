@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgrabows <fgrabows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 09:07:23 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/03/05 13:37:33 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/03/18 10:45:12 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Fixed::Fixed(const int intValue)
 Fixed::Fixed(const float floatValue)
 {
 	std::cout << "Float constructor called" << std::endl;
-	if(MAX_FIXED > floatValue || MIN_FIXED > floatValue){
+	if(MAX_FIXED < floatValue || MIN_FIXED > floatValue){
 		std::cout << "Too big value for this variable type" << std::endl;
 		exit(1);
 	}
@@ -65,7 +65,6 @@ Fixed& Fixed::operator= (const Fixed& other)
         this->_value = other.getRawBits();
     return *this;
 }
-
 
 int Fixed::getRawBits(void) const
 {

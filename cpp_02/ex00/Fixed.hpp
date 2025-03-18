@@ -6,7 +6,7 @@
 /*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 09:05:51 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/02/06 13:08:38 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/03/18 10:20:41 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ private:
 public:
 	Fixed(void);
 	Fixed(const Fixed &fixed);
-	~Fixed(void);
+	~Fixed();
 	Fixed& operator= (const Fixed& other);
 
 	int getRawBits( void ) const;
