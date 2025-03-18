@@ -6,7 +6,7 @@
 /*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 20:18:51 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/02/07 13:43:09 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/03/18 20:45:24 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 bool ClapTrap::isAbleToAct(void)
 {
-	if (!isAlive())
-		return (false);
-	if (!hasEnergy())
+	if (!isAlive() || !hasEnergy())
 		return (false);
 	return (true);
 }
