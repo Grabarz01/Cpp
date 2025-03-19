@@ -6,7 +6,7 @@
 /*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 20:18:51 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/03/19 12:34:33 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/03/18 21:38:56 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,10 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	if(!isAbleToAct())
 		return;
-	std::cout << "ClapTrap" << _name << " reapairs itself by " << amount
+	std::cout << "ClapTrap" << _name << "reapairs itself by " << amount
 				<< " hit points" << std::endl;
 	_hitPoints += amount;
-	std::cout << "ClapTrap" << _name << " hp equals" << _hitPoints << std::endl;
+	std::cout << "ClapTrap" << _name << "hp equals" << _hitPoints << std::endl;
 }
 
 bool ClapTrap::isAbleToAct(void)

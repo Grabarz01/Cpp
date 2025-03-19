@@ -6,11 +6,11 @@
 #    By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 15:50:16 by fgrabows          #+#    #+#              #
-#    Updated: 2025/02/06 14:24:15 by fgrabows         ###   ########.fr        #
+#    Updated: 2025/03/18 21:30:22 by fgrabows         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Fixed
+NAME = Diamond
 CPP = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = $(wildcard *.cpp)

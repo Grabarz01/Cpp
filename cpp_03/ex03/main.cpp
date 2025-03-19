@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/07 10:09:04 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/03/19 11:45:33 by fgrabows         ###   ########.fr       */
+/*   Created: 2025/02/06 20:18:49 by fgrabows          #+#    #+#             */
+/*   Updated: 2025/03/19 12:31:51 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
-#include "ClapTrap.hpp" 
-
-class ScavTrap : public ClapTrap
+int main()
 {
-protected:
+	DiamondTrap a("Kaizer");
+
+	a.attack("someone");
+	a.beRepaired(20);
+	a.highFivesGuys();
+	a.whoAmI();
 	
-public:
-    ScavTrap(void);
-    ScavTrap(std::string name);
-    ScavTrap(const ScavTrap& other);
-    ~ScavTrap();
-
-    ScavTrap& operator=(const ScavTrap& other);
-
-    void attack(const std::string& target);
-    void guardGate();
-};
-
-#endif
+}

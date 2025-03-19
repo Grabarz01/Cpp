@@ -6,7 +6,7 @@
 /*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 10:09:04 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/03/19 11:45:33 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/03/18 21:50:44 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 
 #include "ClapTrap.hpp" 
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
-protected:
-	
 public:
     ScavTrap(void);
     ScavTrap(std::string name);
