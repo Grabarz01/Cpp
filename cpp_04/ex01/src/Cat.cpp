@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*   By: fgrabows <fgrabows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 19:12:51 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/03/20 20:27:23 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/03/21 10:23:33 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 Cat::Cat(void)
 {
 	_type = "Cat";
-	_brain = new Brain;
+	_brain = new Brain();
 	std::cout << "Cat default constructor called" << std::endl;
 }
 
 Cat::Cat(const Cat& other) : Animal(other)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
-	*this = other;
+	_brain = new Brain(other._brain);
 }
 
 Cat::~Cat(void)
@@ -39,6 +39,11 @@ const Cat& Cat::operator= (const Cat& other)
 	if (&other == this)
 		return (*this);
 	Animal::operator= (other);
+	
+	if (_brain)
+		delete _brain;
+	_brain = new Brain(*other._brain);
+	
 	return (*this);
 }
 
