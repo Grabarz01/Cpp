@@ -6,7 +6,7 @@
 /*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 14:28:24 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/02/07 19:32:11 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/03/20 20:51:23 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,17 @@ Animal::Animal(void) : _type("Unknown")
 	std::cout << "Animal default constructor called" << std::endl;
 }
 
-Animal::Animal(std::string type) : _type(type)
-{
-	std::cout << "Animal parameterized constructor called" << std::endl;
-}
-
 Animal::Animal(const Animal& other)
 {
 	std::cout << "Animal copy constructor called" << std::endl;
 	*this = other;
 }
+
+Animal::~Animal(void)
+{
+	std::cout << "Animal destructor called" << std::endl;
+}
+
 Animal& Animal::operator= (const Animal& other)
 {
 	std::cout << "Animal overloaded operator called" << std::endl;
@@ -37,7 +38,7 @@ Animal& Animal::operator= (const Animal& other)
 	return(*this);
 }
 
-void Animal::makeSound(void)
+const std::string& Animal::getType(void) const
 {
-	std::cout << "Some unknown sound..." << std::endl;
+	return _type;
 }
