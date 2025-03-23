@@ -6,13 +6,11 @@
 /*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 19:12:51 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/03/20 21:14:13 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/03/23 21:25:41 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
-#include <cstring>
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Brain.hpp"
@@ -20,14 +18,14 @@
 Cat::Cat(void)
 {
 	_type = "Cat";
-	_brain = new Brain;
+	_brain = new Brain();
 	std::cout << "Cat default constructor called" << std::endl;
 }
 
 Cat::Cat(const Cat& other) : Animal(other)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
-	*this = other;
+	_brain = new Brain(*(other._brain));
 }
 
 Cat::~Cat(void)
@@ -41,10 +39,11 @@ const Cat& Cat::operator= (const Cat& other)
 	if (&other == this)
 		return (*this);
 	Animal::operator= (other);
-	if(_brain)
+	
+	if (_brain)
 		delete _brain;
-	_brain = new Brain(*other._brain);
-
+	_brain = new Brain(*(other._brain));
+	
 	return (*this);
 }
 

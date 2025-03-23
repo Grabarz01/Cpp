@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*   By: fgrabows <fgrabows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 20:15:35 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/03/20 20:21:04 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/03/21 10:16:17 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ const Brain& Brain::operator=(const Brain& other)
 {
 	if (&other == this)
 		return *this;
+	
+	for (int i = 0; i < 100; i++)
+		this->ideas[i] = other.ideas[i];
+	
 	return *this;
 	
 }

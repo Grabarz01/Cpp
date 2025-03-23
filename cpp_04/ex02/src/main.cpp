@@ -6,7 +6,7 @@
 /*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 19:06:23 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/03/20 20:58:54 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/03/23 21:48:44 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,26 @@
 #include "WrongCat.hpp"
 #include <iostream>
 
+#define ANIMALS 10
+#define HALF 5
 int main()
 {
-	Animal* animals[10];
-	for (int i = 0; i < 5; i++)
+	Animal* animals[ANIMALS];
+	for (int i = 0; i < HALF; i++)
 		animals[i] = new Cat();
 		
-	for (int i = 0; i < 5; i++)
-		animals[i+5] = new Dog();
+	for (int i = 0; i < HALF; i++)
+		animals[i + HALF] = new Dog();
 	
-	for (int i = 0; i < 10; i++){
+	for (int i = 0; i < ANIMALS; i++){
 		std::cout << i + 1 << ".";
 		animals[i]->makeSound();
 	}
 	
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < ANIMALS; i++)
         delete animals[i];
 	return 0;
-	//Animal d;
-	//d.makeSound();
+
+	//Animal test;
+	
 }
