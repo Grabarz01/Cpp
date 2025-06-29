@@ -6,11 +6,11 @@
 #    By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 15:50:16 by fgrabows          #+#    #+#              #
-#    Updated: 2025/06/25 11:55:11 by fgrabows         ###   ########.fr        #
+#    Updated: 2025/06/29 09:15:47 by fgrabows         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Serializer
+NAME = RPN
 
 CPP = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude
