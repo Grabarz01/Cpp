@@ -6,7 +6,7 @@
 /*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 18:19:51 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/06/25 09:40:59 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/06/29 14:24:56 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,3 +197,11 @@ bool isDouble(const std::string& input) {
             << std::endl;
   return true;
 }
+
+
+/*
+static_cast:
+-checks at compile time if conversion is allowed
+-it's safe according to the rules
+-safer than C cast cause we know which type of conversion is going to be used
+*/

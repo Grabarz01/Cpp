@@ -6,13 +6,15 @@
 /*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 11:01:32 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/06/25 12:05:25 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/06/29 16:04:13 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
 #include <iostream>
 #include <ctime>
+#include <cstdlib>
+
 
 Base* generate(void);
 void identify(Base* p);
@@ -77,6 +79,7 @@ void identify(Base& p) {
 }
 
 /*dynamic cast - runtime casting
+	- safe type of casting
   pointer - returns null if wrong
   reference - throws error if wrong
 */

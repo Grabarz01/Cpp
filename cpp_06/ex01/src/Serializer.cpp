@@ -6,7 +6,7 @@
 /*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 08:13:26 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/06/25 09:21:16 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/06/29 16:04:14 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,6 @@ uintptr_t Serializer::serialize(Data *ptr) {
 Data *Serializer::deserialize(uintptr_t raw) {
     return (reinterpret_cast<Data *>(raw));
 }
+
+/*NOTES*/
+//so it just reinterprets the bits - not safe
