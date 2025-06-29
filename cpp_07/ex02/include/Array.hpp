@@ -6,7 +6,7 @@
 /*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 17:37:41 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/06/26 09:01:18 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/06/29 16:45:36 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,21 @@
 template <typename T>
 class Array{
 	private:
-  T* _arr;
-  unsigned int _size;
+		T* _arr;
+		unsigned int _size;
 	
 	public:
-  Array();
-  Array(unsigned int n);
-  Array(const Array<T>& other);
-	
-  ~Array();
-	
-  const Array<T>& operator=(const Array<T>& other);
-  T& operator[](unsigned int n) const;
-	
-  unsigned int size() const;
+		Array();
+		Array(unsigned int n);
+		Array(const Array<T>& other);
+		
+		~Array();
+		
+		Array<T>& operator=(const Array<T>& other);
+		T& operator[](unsigned int n);
+		const T& operator[](unsigned int n) const;
+		
+		unsigned int size() const;
 };
 
 #include "Array.tpp"

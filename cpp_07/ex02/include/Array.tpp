@@ -6,12 +6,13 @@
 /*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 17:50:17 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/06/26 09:05:42 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/06/29 16:42:25 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Array.hpp>
 #include <iostream>
+#include <cstdlib>
 
 template <typename T>
 Array<T>::Array() : _arr(new T[0]), _size(0) {}
@@ -33,20 +34,28 @@ Array<T>::~Array() {
 }
 
 template <typename T>
-const Array<T>& Array<T>::operator=(const Array<T>& other) {
+Array<T>& Array<T>::operator=(const Array<T>& other) {
   if (&other == this)
     return *this;
   delete[] _arr;
-  _arr = new T[other.size];
-  _size = other.size;
+  _arr = new T[other._size];
+  _size = other._size;
   for (unsigned int i = 0; i < _size; i++) {
     _arr[i] = other._arr[i];
   }
 	return *this;
 }
+
 template <typename T>
-T& Array<T>::operator[](unsigned int n) const {
+T& Array<T>::operator[](unsigned int n) {
   if (n >= this->_size)
+    throw std::out_of_range("Array index out of range");
+  return _arr[n];
+}
+
+template <typename T>
+const T& Array<T>::operator[](unsigned int n) const{
+	if (n >= this->_size)
     throw std::out_of_range("Array index out of range");
   return _arr[n];
 }
