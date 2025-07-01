@@ -6,7 +6,7 @@
 /*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 08:55:53 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/06/27 13:32:59 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/06/30 20:40:36 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,29 @@ int main(){
 		++it;
 	}
 	std::stack<int> s(mstack);
+	std::cout << "--------------------------------" << std::endl;
+	std::cout << "copy" << std::endl;
+	MutantStack<int>copy(mstack);
+	MutantStack<int>::iterator it2 = copy.begin();
+	MutantStack<int>::iterator ite2 = copy.end();
+	++it2;
+	--it2;
+	*it2 = 15;
+	while (it2 != ite2)
+	{
+		std::cout << *it2 << std::endl;
+		++it2;
+	}
+	it = mstack.begin();
+	ite = mstack.end();	
 
+	std::cout << "Original:" << std::endl;
+
+	while (it != ite)
+	{
+		std::cout << *it << std::endl;
+		++it;
+	}
 	std::cout << "--------------------------------" << std::endl;
 	std::list<int> list;
 

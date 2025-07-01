@@ -6,7 +6,7 @@
 /*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 11:44:04 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/06/26 20:10:30 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/06/30 21:00:02 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,19 @@ int main(){
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
 	return 0;
+
+	Span sp2 = Span(5);
+	std::vector<int> vec;
+	std::srand(time(NULL));
+	for (int i = 0; i < 100 ; i++)
+	{
+		int random_int = rand() % 100;
+		vec.push_back(random_int);
+	}
+	sp.addNumbers(vec.begin(),vec.end());
+
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
 
 /*	
 	srand(time(0));
