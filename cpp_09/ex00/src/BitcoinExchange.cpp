@@ -6,7 +6,7 @@
 /*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 13:39:00 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/06/28 21:01:45 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/06/29 13:10:10 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void BitcoinExchange::exchange(std::ifstream& filename) {
       Date date(line.substr(0, 10));
       float value = extractValue(line.substr(14));
 			if(value > 1000)
-				throw std::runtime_error("Number too big(you're not that rich... yet)");
+				throw std::runtime_error("Number too big (you're not that rich... yet)");
       float result = exchangeResult(value, date);
       std::cout << date << " => " << value << " = " << std::fixed
                 << std::setprecision(2) << result << std::endl;

@@ -6,11 +6,11 @@
 #    By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 15:50:16 by fgrabows          #+#    #+#              #
-#    Updated: 2025/06/25 12:06:04 by fgrabows         ###   ########.fr        #
+#    Updated: 2025/08/03 21:16:22 by fgrabows         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Base
+NAME = PmergeMe
 
 CPP = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude
@@ -42,5 +42,5 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re test
 	
