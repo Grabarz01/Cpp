@@ -6,7 +6,7 @@
 /*   By: fgrabows <fgrabows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 09:29:34 by fgrabows          #+#    #+#             */
-/*   Updated: 2025/06/29 12:25:47 by fgrabows         ###   ########.fr       */
+/*   Updated: 2025/08/19 09:15:30 by fgrabows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,9 @@ void RPN::executeOperation(char& c){
 	float result;
 	if (_stack.size() < 2)
 		throw std::runtime_error("Not enough numbers to execute the operation");
-	float first = _stack.top();
-	_stack.pop();
 	float second = _stack.top();
+	_stack.pop();
+	float first = _stack.top();
 	_stack.pop();
 	switch (c){
 		case '/':
